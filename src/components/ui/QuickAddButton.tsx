@@ -3,16 +3,24 @@
 import { useState } from 'react';
 import { ShoppingBag, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCart } from '@/components/cart/CartProvider';
 
 interface QuickAddButtonProps {
-  productId: string;
+  product: {
+    id: string;
+    name: string;
+    price: number | string | any;
+    images: { url: string }[];
+    sizes: { name: string; stock: number }[];
+  };
   inStock: boolean;
   className?: string;
 }
 
-export function QuickAddButton({ productId, inStock, className = '' }: QuickAddButtonProps) {
+export function QuickAddButton({ product, inStock, className = '' }: QuickAddButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const { addItem } = useCart();
 
   const handleQuickAdd = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -22,9 +30,20 @@ export function QuickAddButton({ productId, inStock, className = '' }: QuickAddB
     
     setIsLoading(true);
     
-    // Simulate API call to add to cart
-    await new Promise(resolve => setTimeout(resolve, 800));
+    // Simulate minor network delay for better UX
+    await new Promise(resolve => setTimeout(resolve, 300));
     
+    const firstInStockSize = product.sizes?.find(size => size.stock > 0)?.name || 'S';
+    
+    addItem({
+      productId: product.id,
+      name: product.name,
+      price: Number(product.price),
+      size: firstInStockSize,
+      quantity: 1,
+      image: product.images?.[0]?.url
+    });
+
     setIsLoading(false);
     setIsSuccess(true);
     
@@ -32,8 +51,6 @@ export function QuickAddButton({ productId, inStock, className = '' }: QuickAddB
     setTimeout(() => {
       setIsSuccess(false);
     }, 2000);
-    
-    // In a real app, you would trigger the cart drawer to open here
   };
 
   return (

@@ -76,7 +76,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Quick Add overlay */}
         <div className="absolute bottom-0 left-0 w-full p-4 translate-y-full opacity-0 transition-all duration-400 ease-[var(--ease-premium)] group-hover:translate-y-0 group-hover:opacity-100">
-          <QuickAddButton productId={product.id} inStock={inStock} />
+          <QuickAddButton product={product} inStock={inStock} />
         </div>
       </Link>
 
