@@ -176,7 +176,7 @@ export async function createOrder(data: z.infer<typeof checkoutSchema>) {
       `;
 
       await resend.emails.send({
-        from: "NextJS Store <onboarding@resend.dev>",
+        from: "onboarding@resend.dev",
         to: adminEmail,
         subject: `New Order Alert: #${order.id}`,
         html: emailHtml,
