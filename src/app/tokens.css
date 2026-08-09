@@ -1,0 +1,98 @@
+/*
+  RAW Clothing Design Tokens (copied from src/app/(design)/tokens.css)
+  =========================
+  This file defines the global CSS variables for colours, typography, spacing,
+  border‑radius, shadows, and animation timing used throughout the storefront
+  and admin dashboard. All components should reference these variables instead
+  of hard‑coded values so the visual language stays consistent and can be tweaked
+  easily.
+*/
+
+:root {
+  /* ==== Colour Palette ==== */
+  --raw-black: #0a0a0a;
+  --raw-charcoal: #151515;
+  --raw-soft-black: #1a1a1a;
+
+  --raw-white: #ffffff;
+  --raw-off-white: #f5f5f5;
+  --raw-light-grey: #f0f0f0;
+  --raw-soft-grey: #e0e0e0;
+  --raw-mid-grey: #9a9a9a;
+  --raw-dark-grey: #3a3a3a;
+
+  /* Accent — Crimson Red */
+  --raw-red:        #cc0000;
+  --raw-red-hover:  #aa0000;
+  --raw-red-light:  #e60000;
+  --raw-red-muted:  rgba(204, 0, 0, 0.15);
+
+  --raw-success: #2d8a62;
+  --raw-error:   #cc0000;
+  --raw-info:    #3a6ea5;
+
+  /* Text colours */
+  --raw-text-primary:   #111111;
+  --raw-text-secondary: #666666;
+  --raw-text-light:     #999999;
+
+  /* Border colours */
+  --raw-border-light: rgba(15, 15, 15, 0.1);
+  --raw-border-dark:  rgba(255, 255, 255, 0.12);
+
+  /* ==== Typography ==== */
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Typographic scale */
+  --text-hero: clamp(3rem, 8vw, 7rem);
+  --text-section: clamp(2rem, 4vw, 4.5rem);
+  --text-body: 1rem;
+
+  /* ==== Spacing Scale ==== */
+  --spacing-0: 0;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 24px;
+  --spacing-6: 32px;
+  --spacing-7: 40px;
+  --spacing-8: 48px;
+  --spacing-9: 64px;
+  --spacing-10: 80px;
+  --spacing-11: 96px;
+  --spacing-12: 120px;
+
+  /* ==== Border Radius ==== */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ==== Shadow System ==== */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-glow-dark: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255,255,255,0.06);
+  --shadow-red-accent: 0 12px 40px rgba(204, 0, 0, 0.25);
+
+  /* ==== Animation Timing ==== */
+  --ease-premium: 0.22, 1, 0.36, 1;
+  --ease-soft: 0.16, 1, 0.3, 1;
+  --duration-fast: 0.2s;
+  --duration-normal: 0.4s;
+  --duration-slow: 0.7s;
+  --duration-hero: 1s;
+}
+
+/* Dark mode overrides (admin dashboard) */
+[data-theme="dark"] {
+  --raw-background: #0f0f10;
+  --raw-card: #171719;
+  --raw-sidebar: #090909;
+  --raw-border: rgba(255,255,255,0.08);
+  --raw-text: #f5f5f5;
+  --raw-text-muted: #a3a3a3;
+}
